@@ -9,12 +9,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    // <Container>
-    //   <Content> content</Content>
-    // </Container>
-    // <div className="content">
-    //   <div className="name">hello</div>
-    // </div>
+  
     <section className="h-screen flex flex-col text-center bg-Login-background bg-cover ">
       <div className=" min-h-screen flex justify-center items-center w-full mb-[10vw] h-full p-20 mr-auto ml-auto">
         <div className="w-[600px] flex flex-col text-center ">
@@ -38,13 +33,6 @@ const Login = () => {
   );
 };
 
-// const Container = styled.div`
-//   height: 100vh;
-//   width: 100vw;
-//   overflow: hidden;
-//   display: flex;
-// `;
 
-// const Content = styled.div``;
 
 export default Login;

@@ -10,6 +10,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/pratice" element={<practice />} />
         </Routes>
       </Router>
     </div>

@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { auth, provider } from "../firebase";
+import { signInWithPopup } from "firebase/auth";
 import Logo from "../assest/images/logo.svg";
 import HomeLogo from "../assest/images/home-icon.svg";
 import SearchLogo from "../assest/images/search-icon.svg";
@@ -7,9 +10,17 @@ import OriginalsLogo from "../assest/images/original-icon.svg";
 import MoviesLogo from "../assest/images/movie-icon.svg";
 import SeriesLogo from "../assest/images/series-icon.svg";
 import PrimaryLinks from "./PrimaryLinks";
-import { Link } from "react-router-dom";
 
 const header = (props) => {
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="container mx-auto  bg-pry-bg h-[70px] text-white flex justify-between items-center tracking-widest fixed">
       <img src={Logo} className="px-8 w-36 " />
@@ -44,7 +55,10 @@ const header = (props) => {
         </ul>
       </nav>
       <Link to="#" className="px-8">
-        <span className="border border-[#f9f9f9] bg-[#00000099] py-2 rounded transition hover:bg-white hover:text-black px-6 text-2xl tracking-wider">
+        <span
+          onClick={signInWithGoogle}
+          className="border border-[#f9f9f9] bg-[#00000099] py-2 rounded transition hover:bg-white hover:text-black px-6 text-2xl tracking-wider"
+        >
           Login
         </span>
       </Link>

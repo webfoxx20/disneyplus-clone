@@ -5,7 +5,7 @@ const PrimaryLinks = ({ LinkIcon, LinkText, Linkpath }) => {
   return (
     <>
       <li className="flex mr-8">
-        <Link to={Linkpath} classname="cursor-pointer">
+        <Link to={Linkpath} className="cursor-pointer">
           <div className="flex">
             <img src={LinkIcon} className="w-5 min-w-[20px] mb-1 mr-1" />
 
