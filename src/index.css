@@ -24,6 +24,28 @@ body {
   transform: scale(1);
   opacity: 1;
 }
+.main-content {
+  min-height: calc(100vh - 250px);
+}
+
+.slick-dots button:before {
+  font-size: 10px !important;
+  color: rgb(150, 158, 171);
+}
+.slick-dots .slick-active button:before {
+  color: white !important;
+}
+.slick-arrow {
+  height: 100%;
+  width: 80px;
+  z-index: 1;
+}
+.slick-list {
+  overflow: initial !important;
+}
+.slide-container {
+  height: 100%;
+}
 
 @tailwind base;
 @tailwind components;
