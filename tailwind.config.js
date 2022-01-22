@@ -15,6 +15,7 @@ module.exports = {
       gridTemplateColumns: {
         // Simple 16 column grid
         "5x": "repeat(auto-fit, minmax(200px, 1fr))",
+        "4x": "repeat(auto-fit, minmax(200px, 1fr))",
       },
     },
   },

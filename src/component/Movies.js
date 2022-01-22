@@ -35,41 +35,7 @@ const Movies = () => {
     );
   });
 
-  return (
-    <div className="mt-10 p-10 grid grid-cols-5x gap-5 ">
-      {/* <div className="rounded-xl movies border-[rgba(115,115,115,0.34)] border-4 cursor-pointer hover:scale-105 hover:border-[rgba(249,249,249,0.8)] relative overflow-hidden pt-[55.6%] group transition duration-300">
-        <img
-          src={movies1}
-          alt="movie"
-          className="w-full h-full absolute top-0 object-cover block  transition duration-300 z-10"
-        />
-        <video
-          autoPlay={true}
-          loop={true}
-          playsInline={true}
-          className="w-full h-full absolute top-0  z-0 transition duration-300 opacity-0 group-hover:opacity-100"
-          muted={true}
-        >
-          <source src={video2} type="video/mp4" />
-        </video>
-      </div>
-      <div className="rounded-xl movies border-[rgba(115,115,115,0.34)] border-4 cursor-pointer">
-        <video autoPlay={true} loop={true} playsInline={true} muted={true}>
-          <source src={video1} type="video/mp4" />
-        </video>
-      </div>
-      <div className="rounded-xl movies border-[rgba(115,115,115,0.34)] border-4 cursor-pointer">
-        <img src={movies3} alt="movie" className="w-full" />
-      </div>
-      <div className="rounded-xl movies border-[rgba(115,115,115,0.34)] border-4 cursor-pointer">
-        <img src={movies4} alt="movie" className="w-full" />
-      </div>
-      <div className="rounded-xl movies border-[rgba(115,115,115,0.34)] border-4 cursor-pointer">
-        <img src={movies5} alt="movie" className="w-full" />
-      </div> */}
-      {movie}
-    </div>
-  );
+  return <div className="mt-10 grid grid-cols-5x gap-5 ">{movie}</div>;
 };
 
 export default Movies;
