@@ -12,6 +12,10 @@ module.exports = {
       colors: {
         "pry-clr": "#f9f9f9f",
       },
+      gridTemplateColumns: {
+        // Simple 16 column grid
+        "5x": "repeat(auto-fit, minmax(200px, 1fr))",
+      },
     },
   },
   plugins: [],
