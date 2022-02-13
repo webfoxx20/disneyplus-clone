@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { auth, provider } from "../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -18,6 +18,11 @@ import PrimaryLinks from "./PrimaryLinks";
 import { useDispatch, useSelector } from "react-redux";
 
 const Header = (props) => {
+  const [Hamburger, setHamburger] = useState(false);
+
+  const onHamburgerClick = () => {
+    setHamburger(!Hamburger);
+  };
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -25,8 +30,6 @@ const Header = (props) => {
   const email = useSelector((state) => state.user.value.email);
   const photo = useSelector((state) => state.user.value.photo);
 
-  console.log(email);
-  console.log(photo);
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
@@ -53,7 +56,7 @@ const Header = (props) => {
       });
     }
   };
-
+  // reducer .
   const setUser = (data) => {
     dispatch(
       UserLogin({
@@ -64,7 +67,7 @@ const Header = (props) => {
     );
   };
   return (
-    <div className="bg-black">
+    <div className="bg-black overflow-hidden fixed w-full top-0 left-0 z-40">
       <div className="container mx-auto  w-full px-8  h-[70px] text-white flex justify-between items-center tracking-widest ">
         <img src={Logo} className="px-8 w-36 " />
         {!name ? (
@@ -78,8 +81,15 @@ const Header = (props) => {
           </Link>
         ) : (
           <>
-            <nav className=" mr-auto ml-10">
-              <ul className="flex flex-nowrap">
+            <nav
+              className={` ${
+                Hamburger
+                  ? " transformtranslate-x-0 block fixed top-[70px] left-0 w-full h-[100vh] bg-blue-400 z-50 "
+                  : "hidden lg:relative lg:top-0 lg:left-0 lg:block  lg:h-auto lg:bg-transparent  lg:mr-auto"
+              }`}
+            >
+              {/* flex flex-nowrap flex-col lg:flex-row justify-center items-center lg:justify-start lg:items-start w-full h-full */}
+              <ul className="flex flex-nowrap flex-col  lg:mt-0 lg:flex-row justify-center items-center lg:justify-start lg:items-start w-full h-full">
                 <PrimaryLinks
                   LinkIcon={HomeLogo}
                   LinkText="Home"
@@ -112,14 +122,31 @@ const Header = (props) => {
                 />
               </ul>
             </nav>
-            <div className="user-profile h-14 w-14 relative flex group cursor-pointer">
-              <img src={photo} className="h-full w-full " />
-              <span
-                onClick={signInWithGoogle}
-                className="bg-[rgba(19,19,19)] px-3 py-1  absolute right-0.5 top-14 border-[rgba(115,115,115,0.34)] shadow-sm rounded-sm opacity-0 transition duration-500 group-hover:opacity-100 "
+            <div className="flex justify-center items-center">
+              <div
+                onClick={onHamburgerClick}
+                className=" self-center w-5  h-full  flex flex-col justify-center items-center md:block lg:hidden  cursor-pointer z-10 "
               >
-                SignOut
-              </span>
+                <span
+                  className={`w-5 h-0.5 bg-white block  transition transform   ${
+                    Hamburger ? "translate-y-1 rotate-45" : ""
+                  }`}
+                ></span>
+                <span
+                  className={`w-5 h-0.5 bg-white block mt-0.5 transition transform  ${
+                    Hamburger ? "-rotate-45" : ""
+                  }`}
+                ></span>
+              </div>
+              <div className="z-50 ml-5 user-profile h-10 w-10 rounded-full lg:h-14 lg:w-14 relative flex group cursor-pointer">
+                <img src={photo} className="h-full w-full rounded-full " />
+                <span
+                  onClick={signInWithGoogle}
+                  className=" bg-[rgba(19,19,19)] px-3 py-1  absolute right-3 top-8 border-[rgba(115,115,115,0.34)] shadow-sm rounded-sm opacity-0 transition duration-500 group-hover:opacity-100 "
+                >
+                  SignOut
+                </span>
+              </div>
             </div>
           </>
         )}

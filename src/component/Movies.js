@@ -16,7 +16,10 @@ const Movies = () => {
   const movie = allMovies.map((mov, id) => {
     const video = allVideo[id];
     return (
-      <div className="rounded-xl movies border-[rgba(115,115,115,0.34)] border-4 cursor-pointer hover:scale-105 hover:border-[rgba(249,249,249,0.8)] relative overflow-hidden pt-[55.6%] group transition duration-300">
+      <div
+        key={id}
+        className="rounded-xl movies border-[rgba(115,115,115,0.34)] border-4 cursor-pointer hover:scale-105 hover:border-[rgba(249,249,249,0.8)] relative overflow-hidden pt-[55.6%] group transition duration-300"
+      >
         <img
           src={mov}
           alt="movie"

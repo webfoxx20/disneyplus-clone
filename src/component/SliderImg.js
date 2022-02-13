@@ -19,7 +19,7 @@ const SliderImg = () => {
   const allSlide = [slider1, slider2, slider3, slider4];
   const slides = allSlide.map((slide, id) => {
     return (
-      <div className="slide">
+      <div className="slide" key={id}>
         <img src={slide} alt="slide" className=" rounded" />
       </div>
     );

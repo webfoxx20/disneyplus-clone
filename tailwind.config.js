@@ -5,6 +5,7 @@ module.exports = {
       backgroundImage: {
         "Login-background": "url('./assest/images/login-background.jpg')",
         "body-background": "url('./assest/images/home-background.png')",
+        "body-details": "url('./assest/images/details.jpg')",
       },
       backgroundColor: {
         "pry-bg": "#040714",
