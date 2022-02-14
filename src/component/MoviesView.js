@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const MoviesView = ({ movie }) => {
   return (
-    <div className="block  md:grid grid-cols-4x gap-5 w-full">
+    <div className="block mt-5 md:mt-0  md:grid grid-cols-4x gap-5 w-full">
       {movie
         ? movie.map((movie, key) => (
             <div

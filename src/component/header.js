@@ -84,7 +84,7 @@ const Header = (props) => {
             <nav
               className={` ${
                 Hamburger
-                  ? " transformtranslate-x-0 block fixed top-[70px] left-0 w-full h-[100vh] bg-blue-400 z-50 "
+                  ? " transformtranslate-x-0 block fixed top-[70px] left-0 w-full h-[100vh] bg-[#040714]  z-50 "
                   : "hidden lg:relative lg:top-0 lg:left-0 lg:block  lg:h-auto lg:bg-transparent  lg:mr-auto"
               }`}
             >
